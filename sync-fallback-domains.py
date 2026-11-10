@@ -86,7 +86,7 @@ def main():
         print(f"错误详情: {resp.text}")
         resp.raise_for_status()
 
-    print(f"✅ 回退域名同步成功，共 {len(payload['domains'])} 条")
+    print(f"✅ 回退域名同步成功，共 {len(payload)} 条")
     print(f"   DNS 服务器: {DNS_SERVERS}")
 
 
