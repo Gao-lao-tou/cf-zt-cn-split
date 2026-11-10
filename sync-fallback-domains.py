@@ -37,17 +37,15 @@ def fetch_domains():
 
 
 def build_payload(domains):
-    """构造 Cloudflare fallback_domains API 要求的请求体"""
-    return {
-        "domains": [
-            {
-                "suffix": d,
-                "description": "CN Direct Fallback",
-                "dns_server": DNS_SERVERS,
-            }
-            for d in domains
-        ]
-    }
+    """构造 Cloudflare fallback_domains API 要求的请求体（直接数组）"""
+    return [
+        {
+            "suffix": d,
+            "description": "CN Direct Fallback",
+            "dns_server": DNS_SERVERS,
+        }
+        for d in domains
+    ]
 
 
 def main():
