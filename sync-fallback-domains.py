@@ -64,6 +64,9 @@ def main():
 
     # ⚠️ 必须是 PUT：它会用新列表完整替换旧列表
     resp = requests.put(url, headers=headers, json=payload, timeout=60)
+    if not resp.ok:
+    print(f"❌ 请求失败，状态码: {resp.status_code}")
+    print(f"错误详情: {resp.text}")
     resp.raise_for_status()
 
     print(f"✅ 回退域名同步成功，共 {len(payload)} 条")
